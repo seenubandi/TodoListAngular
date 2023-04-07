@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todoList';
+  textInput:any=""
+  todoList=[{"id":1,"task":"Sample Task"}]
+   change(value:any) {
+     this.textInput = value
+  }
+  update() {
+    this.todoList.push({"id":this.todoList.length+1,"task":this.textInput})
+    this.textInput = ""
+  }
+  modifyList(id:any){
+      this.todoList.splice(id-1,1)
+  }
 }
